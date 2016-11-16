@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial';
+    list-style: none;
+}
+#wrapper {
+    width: 900px;
+    margin: 0 auto;
+
+}
+.earn {
+    color: green;
+}
+.lost {
+    color: red;
+}
+h1 {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+.place {
+    width: 200px;
+    height: 100px;
+    display: inline-block;
+    margin: 20px 8px;
+    border: 2px solid black;
+}
+    .place h3, .place p {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .place input {
+        margin-left: 65px;
+        margin-top: 10px;
+    }
+#goldcount {
+    display: block;
+}
+#goldcount a {
+    float: right;
+}
+
+ul {
+    overflow-y: auto;
+    height: 200px;
+}

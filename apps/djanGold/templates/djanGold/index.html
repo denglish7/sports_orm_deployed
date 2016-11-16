@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja Golds</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'djanGold/styles.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Ninja Golds</h1>
+        <div id="goldcount">
+            <p>Your Gold:</p>
+            {% csrf_token %}
+            <input type="text" value="{{ request.session.ninjagold }}" name="goldcount">
+            <a href="/reset">Reset</a>
+        </div>
+        <form action="/process_money" method="post" class="place">
+            {% csrf_token %}
+            <h3>Farm</h3>
+            <p>(earns 10-20 golds)</p>
+            <input type="hidden" name="building" value="farm" />
+            <input type="submit" value="Find Gold!" />
+        </form>
+        <form action="/process_money" method="post" class="place">
+            {% csrf_token %}
+            <h3>Cave</h3>
+            <p>(earns 5-10 golds)</p>
+            <input type="hidden" name="building" value="cave" />
+            <input type="submit" value="Find Gold!" />
+        </form>
+        <form action="/process_money" method="post" class="place">
+            {% csrf_token %}
+            <h3>House</h3>
+            <p>(earns 2-5 golds)</p>
+            <input type="hidden" name="building" value="house" />
+            <input type="submit" value="Find Gold!" />
+        </form>
+        <form action="/process_money" method="post" class="place">
+            {% csrf_token %}
+            <h3>Casino</h3>
+            <p>(earns/takes 0-50 golds)</p>
+            <input type="hidden" name="building" value="casino" />
+            <input type="submit" value="Find Gold!" />
+        </form>
+        <div class="activities">
+            <h3>Activities:</h3> {% if request.session.activity %}
+            <ul>
+                {% for class, activity in request.session.activity reversed %}
+                <li class={{class}}>{{activity}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        
+    </div><!-- /#wrapper  -->
+</body>
+
+</html>
